@@ -60,6 +60,13 @@ async function run() {
             res.send(result);
         })
 
+        app.post('/review', async (req, res) => {
+
+            const review = req.body;
+            const result = await reviewCollection.insertOne(review);
+            res.send(result);
+        })
+
         app.delete('/review/:id', async (req, res) => {
 
             const id = req.params.id;
